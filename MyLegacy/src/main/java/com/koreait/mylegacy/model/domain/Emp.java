@@ -4,7 +4,14 @@ public class Emp {
 	private int empno;
 	private String ename;
 	private int sal;
-	private int deptno;
+	private Dept dept;//1:1관계
+	
+	public Dept getDept() {
+		return dept;
+	}
+	public void setDept(Dept dept) {
+		this.dept = dept;
+	}
 	public int getEmpno() {
 		return empno;
 	}
@@ -23,12 +30,8 @@ public class Emp {
 	public void setSal(int sal) {
 		this.sal = sal;
 	}
-	public int getDeptno() {
-		return deptno;
-	}
-	public void setDeptno(int deptno) {
-		this.deptno = deptno;
-	}
+	
+	
 	
 	
 }

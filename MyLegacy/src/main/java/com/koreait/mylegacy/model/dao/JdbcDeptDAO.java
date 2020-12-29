@@ -1,18 +1,22 @@
 package com.koreait.mylegacy.model.dao;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.koreait.mylegacy.model.domain.Dept;
-import com.koreait.mylegacy.model.pool.PoolManager;
 
 //Dept테이블에 대한 CRUD를 수행하되, jdbc기반으로 코드를 작성
 @Repository //servlet-context에 올려주기 위해
 public class JdbcDeptDAO {
-	@Autowired
-	private PoolManager poolManager;
+	Connection con;
+	public void setCon(Connection con) {
+		this.con = con;
+	}
+	
 	
 	public List selectAll() {
 		List list = null;
@@ -24,9 +28,30 @@ public class JdbcDeptDAO {
 		return dept;
 	}
 	
-	public int regist(Dept dept) {
+	public int regist(Dept dept) throws SQLException{//예외 전가
 		int result = 0;
-		System.out.println("풀매니저"+poolManager);
+		PreparedStatement pstmt = null;
+		String sql = "insert into dept(deptno, dname, loc) values(?,?,?)";
+	
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, dept.getDeptno());
+			pstmt.setString(2, dept.getDname());
+			pstmt.setString(3, dept.getLoc());
+			
+			result = pstmt.executeUpdate();
+			
+		} finally {
+			if(pstmt!=null) {
+				try {
+					pstmt.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+		}
+
 		return result;
 	}
 	
