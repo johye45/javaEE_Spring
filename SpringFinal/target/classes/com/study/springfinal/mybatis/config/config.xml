@@ -17,8 +17,8 @@
     </environment>
   </environments>
 <mappers>
-	<mapper resource="com/study/springfinal/mybatis/mapper/DeptMapper.xml"/>
-	<mapper resource="com/study/springfinal/mybatis/mapper/EmpMapper.xml"/>
-	<mapper resource="com/study/springfinal/mybatis/mapper/GalleryMapper.xml"/>
+	<mapper resource="com/koreait/mylegacy/mybatis/mapper/DeptMapper.xml"/>
+	<mapper resource="com/koreait/mylegacy/mybatis/mapper/EmpMapper.xml"/>
+
 </mappers>
 </configuration>

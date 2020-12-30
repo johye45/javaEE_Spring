@@ -107,7 +107,7 @@ body {
   </div> 
 </div>
 
-<h3>Dropdown Menu inside a Navigation Bar</h3>
+<h3>상품 목록</h3>
 <p>Hover over the "Dropdown" link to see the dropdown menu.</p>
 
 </body>

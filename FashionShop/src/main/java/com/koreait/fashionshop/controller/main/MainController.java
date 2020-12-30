@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class MainController {
 	
-	//main페이지 보여주기 index.jsp
+	//쇼핑몰 회원이 보는 페인 페이지
 	@RequestMapping(value = "/", method=RequestMethod.GET)
 	public String main() {
 		return "index";
