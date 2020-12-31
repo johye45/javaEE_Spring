@@ -4,6 +4,16 @@
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <%@include file="../inc/header.jsp" %>
+<script>
+	$(function(){
+		$("button").click(function(){
+			location.href="/admin/product/registform";//글쓰기 폼 요청
+			
+		});
+		
+	});
+
+</script>
 </head>
 <body>
 
@@ -18,13 +28,22 @@
 			  <th>First Name</th>
 			  <th>Last Name</th>
 			  <th>Points</th>
+			  <th>Points</th>
+			  <th>Points</th>
 		</tr>
 		<tr>
 			  <td>Jill</td>
 			  <td>Smith</td>
 			  <td>50</td>
+			  <td>50</td>
+			  <td>50</td>
 		</tr>
 	</table>
+	<tr>
+		<td colspan="5">
+			<button type="button">상품등록</button>
+		</td>
+	</tr>
 </p>
 
 </body>
