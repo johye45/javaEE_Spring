@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper
+	namespace="Product">
+	
+	<insert id="insert" parameterType="Product"><!-- product_id는 모든 데이터가 채워진 후 마지막에 채워진다 -->
+		insert into product(product_id, subcategory_id, product_name, price, brand,detail,filename)
+		values(seq_product.nextval,#{subcategory_id},#{product_name},#{price},#{brand},#{detail},#{filename})
+		<selectKey order="AFTER"  keyProperty="product_id" resultType="int"><!-- order="인서트 후에" keyProperty="pk에 채우자" -->
+			<!-- 최신 pk를 얻어오기 위해서 , 단, insert후! -->
+			select seq_product.currval as product_id from dual	
+		</selectKey>
+	</insert>
+	
+</mapper>

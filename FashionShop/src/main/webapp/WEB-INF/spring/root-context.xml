@@ -46,10 +46,15 @@
 		<constructor-arg ref="sqlSessionFactoryBean"/>
 	</bean>	
 	
+	
 	<!-- 모델 영역은 모든 서블릿에서 공용으로 사용할 예정이므로, ServletContext수준에서
 			어플리케이션이 가동될때 부터 등록 되엉 있어야 한다 
 			model파트 부분만 올리기 >>패키지 구분 잘하기
 	-->
-	<context:component-scan base-package="com.koreait.fashionshop.model"/>	
+	<context:component-scan base-package="com.koreait.fashionshop"><!-- FileManager올리기 위해 모두 구해오기 -->
+		<!-- Controller제외하고 -->
+		<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+	</context:component-scan>
+		
 	
 </beans>

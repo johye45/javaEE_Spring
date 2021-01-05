@@ -1,8 +1,15 @@
 package com.koreait.fashionshop.model.product.service;
 
-import org.springframework.stereotype.Service;
+import java.util.List;
 
-@Service
-public class ProductService {
+import com.koreait.fashionshop.common.FileManager;
+import com.koreait.fashionshop.model.domain.Product;
 
+public interface ProductService {
+	public List selectAll();//모든 상품
+	public List selectById(int subcategory_id);//subcategory에 등록된 상품
+	public Product select(int product_id);//상품 한건
+	public void regist(FileManager fileManager, Product product);//insert뿐만 아니라 파일 업로드 처리 
+	public void update(Product product);
+	public void delete(int product_id);
 }

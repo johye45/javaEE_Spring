@@ -111,4 +111,27 @@ insert into subcategory(subcategory_id, topcategory_id,name) values(seq_subcateg
 insert into subcategory(subcategory_id, topcategory_id,name) values(seq_subcategory.nextval,4,'슬리퍼');
 
 
-
+------------------------------------------------------------------------------------------------------------------
+server-context에 등록 하기 json을 사용하려고
+	<!-- json컨버터 등록 -->
+		<!-- 핸들러 -->
+	<beans:bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">
+		<beans:property name="messageConverters">
+			<beans:list value-type="java.util.ArrayList">
+				<beans:ref bean="mappingJackson2XmlHttpMessageConverter"/>
+			</beans:list>
+		</beans:property>
+	</beans:bean>
+	
+	
+	<beans:bean id="mappingJackson2XmlHttpMessageConverter"
+	 class="org.springframework.http.converter.xml.MappingJackson2XmlHttpMessageConverter">
+		<beans:property name="supportedMediaTypes">
+			<!-- 개발자가 원하는 각종 타입을 여러개 명시할 수 있다 -->
+			<beans:list>
+				<beans:value>appication/json;charset=UTF-8</beans:value>
+			</beans:list>
+			
+		</beans:property>
+		
+	</beans:bean>
