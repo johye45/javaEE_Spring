@@ -17,19 +17,19 @@ public class MybatisProductDAO implements ProductDAO{
 	
 	@Override
 	public List selectAll() {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return sqlSessionTemplate.selectList("Product.selectAll");
 	}
 
 	@Override
 	public List selectById(int subcategory_id) {
-		// TODO Auto-generated method stub
+		
 		return null;
 	}
 
 	@Override
 	public Product select(int product_id) {
-		// TODO Auto-generated method stub
+		
 		return null;
 	}
 

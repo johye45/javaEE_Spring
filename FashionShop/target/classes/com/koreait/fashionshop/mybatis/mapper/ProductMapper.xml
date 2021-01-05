@@ -2,14 +2,36 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper 	namespace="Product">
 	
+	<!-- 목록 보여주기 	상품과 연계된 부모를 같이 가져오자, 상품 입장에서는 부모와 1:1관계이다(association)-->
+	<resultMap  id="productSubcategoryMap" type="Product"><!--개발자가 매핑하고 싶을때 사용, Product  VO에는 SubCategory가 들어있따 -->
+		<id		column="product_id" 		property="product_id"/>
+		<result column="product_name" 	property="product_name"/>
+		<result column="price" 				property="price"/>
+		<result column="brand" 				property="brand"/>
+		<result column="detail" 				property="detail"/>
+		<result column="filename"			property="filename"/><!-- 확장자 -->
+		<!--실팽 타임에 부모의 레코드 한건을 조회하여 Product안의 SubCategory에 채워 넣는다
+				결국 join한 결과와 같다 -->
+		<association 
+		column="subcategory_id" 
+		property="subCategory" 
+		javaType="SubCategory"
+		select="SubCategory.select"/>
+		
+	</resultMap>
+	<select id="selectAll" resultMap="productSubcategoryMap">
+		select * from  product order by product_id desc
+	</select>
+
 	<!-- 상품 등록하기 -->
 	<insert id="insert" parameterType="Product"><!-- product_id는 모든 데이터가 채워진 후 마지막에 채워진다 -->
 		insert into product(product_id, subcategory_id, product_name, price, brand,detail,filename)
-		values(seq_product.nextval,#{subcategory_id},#{product_name},#{price},#{brand},#{detail},#{filename})
+		values(seq_product.nextval,#{subCategory.subcategory_id},#{product_name},#{price},#{brand},#{detail},#{filename})
 		<selectKey order="AFTER"  keyProperty="product_id" resultType="int"><!-- order="인서트 후에" keyProperty="pk에 채우자" -->
 			<!-- 최신 pk를 얻어오기 위해서 , 단, insert후! -->
 			select seq_product.currval as product_id from dual	
 		</selectKey>
 	</insert>
+	
 	
 </mapper>
