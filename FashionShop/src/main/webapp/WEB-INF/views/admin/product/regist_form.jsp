@@ -65,7 +65,7 @@ input[type=button]:hover {
 </style>
 <script type="text/javascript">
 var uploadFiles=[];//이미지 미리보기 목록
-var psizeArray=[] ;//유저가 선택한 사이즈를 담는 배열
+var psize=[] ;//유저가 선택한 사이즈를 담는 배열
 
 $(function(){
 	CKEDITOR.replace("detail");	
@@ -101,7 +101,7 @@ $(function(){
 			//왜? 배열이 지원하는 여러 메서드들을 화룡하기 위해(ex:indexOf사용하려고)
 			preview(uploadFiles[i],i);//index번호 넘기기
 		}
-	});Node.JS 서버는 비동기 방식으로 요청을 처리하므로 요청을 처리하면서 다음 요청을 받을 수 있는 장점이 있습니다. 
+	})
 	
 	$("#dragArea").on("dragleave", function(e){//드래그로 영역에서 빠져나감
 		$(this).append("dragleave<br>");
@@ -130,7 +130,24 @@ $(function(){
 	//체크박스 이벤트 구현
 	$("input[type='checkbox']").on("click", function(e){
 		var ch = e.target;//이벤트 일으킨 주체 컴포넌트 즉 체크박스
-		alert($(ch).val());
+		//체크박스 길이 얻기
+		var ch = $("input[name='size']");
+		var len = $(ch).length;//반복문 이용
+		console.log(len);
+		
+
+		psize=[];//psize초기화
+		console.log("채우기 전 ", psize.length);
+		
+		for(var i=0; i<len; i++){
+			//만일 체크가 되어있다면, 기존 배열을 모두 지우고, 체크된 체크박스 값만 배열에 넣자
+			if($($(ch)[i]).is(":checked")){
+				psize.push($($(ch)[i]).val());
+			}
+			//console.log(i,"번째 체크박스 상태는:",$($(ch)[i]).is(":checked"));
+		}
+		console.log("서버에 전송할 사이즈 배열의 구성은:",psize);
+	
 	});
 	
 });
@@ -201,6 +218,18 @@ function regist(){
 
 	//폼데이터에 에디터긔 값 추가하기
 	formData.append("detail", CKEDITOR.instances["detail"].getData());
+	for(var i = 0; i<psize.length;i++){
+		formData.append("psize["+i+"].fit",psize[i]);//psize.fit(Psize객체의 fit안에 ) 이름으로 psize배열 (psize배열은 전역변수)	
+	}
+
+	/*
+	"test"는 name
+	아래의 코드와 같은 내용
+	input type ="checkbox" name="test" value="banana"
+	input type ="checkbox" name="test" value="apple"
+	input type ="checkbox" name="test" value="orange"
+	*/
+	
 	
 	/*비동기 업로드*/
 	$.ajax({
@@ -210,8 +239,16 @@ function regist(){
 		contentType:false,//false일 경우 multipart/form-data로 간주하기로 함
 		processData:false,//false일 경우 query-string으로 전송하지 않음==get방식으로가 아니라 post방식으로,
 		type:"post",
-		success:function(result){
-			alert(result);
+		success:function(responseData){
+			console.log(responseData);
+			//responseData.result; //성공실패 여부를 판단할 수 있는 데이터
+			var json = JSON.parse(responseData);//String->json으로 파싱
+			if(json.result==1){
+				alert(json.msg);
+				location.href="/admin/product/list";
+			}else{
+				alert(json.msg);
+			}
 		}
 	});
 	
@@ -257,12 +294,12 @@ function regist(){
 	<!-- 지원 사이즈 선택  -->
 	<p>
 	상의 사이즈:
-		XS<input type="checkbox" 	name="psize[0].fit"	value="XS">
-		S<input type="checkbox"	 	name="psize[1].fit"	value="S">
-		M<input type="checkbox"		name="psize[2].fit"	value="M">
-		L<input type="checkbox"		name="psize[3].fit"	value="L">
-		XL<input type="checkbox"	name="psize[4].fit"	value="XL">
-		XXL<input type="checkbox"	name="psize[5].fit"	value="XXL">
+		XS<input type="checkbox" 	name="size"	value="XS">
+		S<input type="checkbox"	 	name="size"	value="S">
+		M<input type="checkbox"		name="size"	value="M">
+		L<input type="checkbox"		name="size"	value="L">
+		XL<input type="checkbox"	name="size"	value="XL">
+		XXL<input type="checkbox"	name="size"	value="XXL">
 
 	</p>
 	

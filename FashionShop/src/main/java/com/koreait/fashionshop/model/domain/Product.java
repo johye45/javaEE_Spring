@@ -21,5 +21,5 @@ public class Product {
 	
 
 	private Color[] color;	//색상 값들
-	private Psize[] psize; //사이즈
+	private Psize[] psize; //사이즈 Psize객체 안에 fit안에 담길예정
 }

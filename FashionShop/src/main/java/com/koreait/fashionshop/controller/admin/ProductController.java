@@ -10,6 +10,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -17,7 +18,9 @@ import org.springframework.web.context.ServletContextAware;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.koreait.fashionshop.common.FileManager;
+import com.koreait.fashionshop.exception.ProductRegistException;
 import com.koreait.fashionshop.model.domain.Product;
+import com.koreait.fashionshop.model.domain.Psize;
 import com.koreait.fashionshop.model.domain.SubCategory;
 import com.koreait.fashionshop.model.product.service.ProductService;
 import com.koreait.fashionshop.model.product.service.SubCategoryService;
@@ -129,7 +132,7 @@ public class ProductController implements ServletContextAware{
 		//상품 상세 
 		
 		//상품 등록 
-		@RequestMapping(value="/admin/product/regist", method=RequestMethod.POST)
+		@RequestMapping(value="/admin/product/regist", method=RequestMethod.POST,  produces = "text/html;charset=utf-8")
 		@ResponseBody //페이지 응답이 아닌 텍스트 응답
 		public String registProduct(Product product) {
 			logger.debug("하위카테고리 "+product.getSubcategory_id());
@@ -137,20 +140,33 @@ public class ProductController implements ServletContextAware{
 			logger.debug("가격 "+product.getPrice());
 			logger.debug("브랜드 "+product.getBrand());
 			logger.debug("상세내용 "+product.getDetail());
+
 			/*
 			logger.debug("대표이미지 "+product.getRepImg().getOriginalFilename());
 			for(int i=0;i<product.getAddImg().length;i++) {
 				logger.debug("추가이미지"+product.getAddImg()[i].getOriginalFilename());				
 			}
-			for(int i=0;i<product.getFit().length;i++) {
-				logger.debug("지원사이즈 "+product.getFit()[i]);				
-			}*/
+			
+			for(int i=0;i<product.getPsize().length;i++) {
+				logger.debug("지원사이즈()[i]);				
+			}
+			*/
+			for(Psize psize:product.getPsize()) {
+				logger.debug("지원 사이즈는:"+psize.getFit());
+			}
 		
 			logger.debug("insert하기 전 상품의 product_id :"+product.getProduct_id());
 			productService.regist(fileManager,product);//상품 등록, 대표이미지와, 추가이미지 모두 등록되는것임
 			logger.debug("방금 insert된 상품의 product_id :"+product.getProduct_id());//데표 이미지 파일명에 사용될 것
 		
-			return "hahaha";
+			
+			StringBuilder sb = new StringBuilder();
+			sb.append("{");
+			sb.append("\"result\":1,");
+			sb.append("\"msg\":\"상품 등록 성공\"");
+			sb.append("}");
+			
+			return sb.toString();
 		}
 
 		
@@ -163,7 +179,18 @@ public class ProductController implements ServletContextAware{
 	//상품 삭제
 		
 	//예외처리
+	//위의 메서드 중 하나라도 예외가 발생하면, 아래의 핸들러가 동작
+	@ExceptionHandler(ProductRegistException.class) //예외처리를 하기 위해서
+	@ResponseBody//페이지 응답이 아닌 텍스트 응답
+	public String handleException(ProductRegistException e) {
+		StringBuilder sb = new StringBuilder();
+		sb.append("{");
+		sb.append("\"result\":0,");
+		sb.append("\"msg\":\""+e.getMessage()+"\"");
+		sb.append("}");
 		
+		return sb.toString();
+	}
 	
 	
 }

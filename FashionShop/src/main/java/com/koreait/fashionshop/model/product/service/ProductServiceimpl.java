@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.koreait.fashionshop.common.FileManager;
+import com.koreait.fashionshop.exception.ProductRegistException;
 import com.koreait.fashionshop.model.domain.Color;
 import com.koreait.fashionshop.model.domain.Image;
 import com.koreait.fashionshop.model.domain.Product;
@@ -56,7 +57,7 @@ public class ProductServiceimpl implements ProductService {
 
 	//DAO에서는 순수DB만 사용하도록하고, 여기서 파일 업로드 작업
 	@Override
-	public void regist(FileManager fileManager, Product product) {
+	public void regist(FileManager fileManager, Product product) throws ProductRegistException{
 		String ext = fileManager.getExtend(product.getRepImg().getOriginalFilename());//대표이미지 확장자 구해오기
 		product.setFilename(ext);//확장자 담기
 		
@@ -90,16 +91,16 @@ public class ProductServiceimpl implements ProductService {
 		
 		//사이즈
 		for(Psize psize:product.getPsize()) {
-			logger.debug("당신이 선택한 사이즈는:"+psize.getFit());
-			//psize.setProduct_id(product.getProduct_id());//fk대입
-			//psizeDAO.insert(psize);
+			//logger.debug("당신이 선택한 사이즈는:"+psize.getFit());
+			psize.setProduct_id(product.getProduct_id());//fk대입
+			psizeDAO.insert(psize);
 		}
 		
 		//색상
 		for(Color color : product.getColor()) {
-			logger.debug("넘겨받은 색상은:"+color.getPicker());
-			//color.setProduct_id(product.getProduct_id());
-			//colorDAO.insert(color);
+			//logger.debug("넘겨받은 색상은:"+color.getPicker());
+			color.setProduct_id(product.getProduct_id());
+			colorDAO.insert(color);
 		}
 		
 	}
