@@ -9,3 +9,6 @@
 <!-- Responsive CSS -->
 <link href="/resources/css/responsive.css" rel="stylesheet">
 
+<!-- jquery -->
+<script	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+

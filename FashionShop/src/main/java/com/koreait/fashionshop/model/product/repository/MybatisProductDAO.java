@@ -21,16 +21,16 @@ public class MybatisProductDAO implements ProductDAO{
 		return sqlSessionTemplate.selectList("Product.selectAll");
 	}
 
+	//하위 카테고리
 	@Override
 	public List selectById(int subcategory_id) {
-		
-		return null;
+		return sqlSessionTemplate.selectList("Product.selectBySubCategoryId", subcategory_id);
 	}
 
+	//상품 한 건
 	@Override
 	public Product select(int product_id) {
-		
-		return null;
+		return sqlSessionTemplate.selectOne("Product.select", product_id);
 	}
 
 	@Override

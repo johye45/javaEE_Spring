@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper	namespace="Image">
+	
 	<!-- 입력 후 , 곧바로 pk를 추출하고자 할 때 selectKey를 이용할 수 있다 -->
 	<insert id="insert" parameterType="Image"><!-- product_id는 모든 데이터가 채워진 후 마지막에 채워진다 -->
 		insert into image(image_id , product_id, filename)
@@ -9,5 +10,9 @@
 			select seq_image.currval as image_id from dual
 		</selectKey>
 	</insert>
+	
+	<select id="selectByProductId"  parameterType="int" resultType="Image">
+		select * from image where product_id=#{product_id}
+	</select>
 	
 </mapper>

@@ -45,13 +45,13 @@ public class ProductServiceimpl implements ProductService {
 	@Override
 	public List selectById(int subcategory_id) {
 		// TODO Auto-generated method stub
-		return null;
+		return productDAO.selectById(subcategory_id);
 	}
 
+	//상품 한건 가져오기
 	@Override
 	public Product select(int product_id) {
-		// TODO Auto-generated method stub
-		return null;
+		return productDAO.select(product_id);
 	}
 
 	//DAO에서는 순수DB만 사용하도록하고, 여기서 파일 업로드 작업
