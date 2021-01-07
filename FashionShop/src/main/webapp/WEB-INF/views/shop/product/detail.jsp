@@ -25,11 +25,19 @@
 	function addCart(){
 		var fromData = $("#cart_form").serialize();//파라미터를 전송할 수 있는 상태의 문자열로 나열해줌
 		$.ajax({
-			url:"/shop/cart/regist",
+			url:"/async/shop/cart/regist",//비동기방식 컨트롤러 사용
 			type:"post",
 			data:fromData,
 			success:function(responseData){
-				alert(responseData);
+				//alert(responseData);//json객체로 Object로 날아옴
+				//따라서
+				if(responseData.resultCode==1){
+					if(confirm(responseData.msg+"\n장바구니로 이동하시겠습니까?")){
+						location.href=responseData.url;	
+					}
+				}else{
+					alert(responseData.msg);
+				}
 			}
 			
 		});

@@ -16,9 +16,9 @@
                 <h6>Categories</h6>
                 <ul id="menu-content" class="menu-content collapse out">
                     <!-- Single Item -->
-               <%for(int i=0;i<topList.size();i++){ %>
+                    <%for(int i=0;i<topList.size();i++){ %>
                     <%TopCategory topCategory=topList.get(i); %>
-                    <li data-toggle="collapse" data-target="#<%=topCategory.getTopcategory_id()%>" class="collapsed active">
+                    <li data-toggle="collapse" data-target="#<%=topCategory.getTopcategory_id() %>" class="collapsed active">
                         <a href="#"><%=topCategory.getName() %><span class="arrow"></span></a>
                         <ul class="sub-menu collapse" id="<%=topCategory.getTopcategory_id()%>">
                         	<%for(int a=0;a<topCategory.getSubCategory().size();a++){ %>
@@ -27,7 +27,7 @@
 							<%} %>
                         </ul>
                     </li>       
-                    <%} %>  
+                    <%} %>          
                 </ul>
             </div>
         </div>
@@ -101,7 +101,8 @@
                                 <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
                                 <a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
                             </div>
-                            <!-- Menu Area : 메인 네비게이션-->
+                            
+                            <!-- Menu Area : 메인네비게이션 영역 -->
                             <div class="main-menu-area">
                                 <nav class="navbar navbar-expand-lg align-items-start">
 
@@ -109,25 +110,28 @@
 
                                     <div class="collapse navbar-collapse align-items-start collapse" id="karl-navbar">
                                         <ul class="navbar-nav animated" id="nav">
-                                            <li class="nav-item active"><a class="nav-link" href="index.html">Home</a></li>
+                                            <li class="nav-item active"><a class="nav-link" href="/">Home</a></li>
                                             <li class="nav-item dropdown">
-                                                <a class="nav-link dropdown-toggle" href="#" id="karlDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Pages</a>
+                                                <a class="nav-link dropdown-toggle" href="#" id="karlDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Category</a>
                                                 <div class="dropdown-menu" aria-labelledby="karlDropdown">
-                                                    <a class="dropdown-item" href="/">Home</a>
-                                                    <a class="dropdown-item" href="/shop/product/list?subcategory_id=1">Shop</a>
-                                                    <a class="dropdown-item" href="/shop/product/detail">Product Details</a>
-                                                    <a class="dropdown-item" href="/shop/cart/list">Cart</a>
-                                                    <a class="dropdown-item" href="/shop/checkout/home">Checkout</a>
+                                                    <%for(TopCategory topCategory : topList){ %>
+                                                    <a class="dropdown-item" href="/"><%=topCategory.getName() %></a>
+													<%} %>                                                                                                        		
                                                 </div>
                                             </li>
-                                            <li class="nav-item"><a class="nav-link" href="#">Dresses</a></li>
-                                            <li class="nav-item"><a class="nav-link" href="#"><span class="karl-level">hot</span> Shoes</a></li>
+                                            <li class="nav-item"><a class="nav-link" href="/shop/product/list?subcategory_id=1">Shopping</a></li>
+                                         
+                                            <li class="nav-item"><a class="nav-link" href="/shop/cart/list"><span class="karl-level">3</span>Cart</a></li>
                                             <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
-                                            
-                                            <!-- 회원가입 -->
                                             <li class="nav-item"><a class="nav-link" href="/shop/member/registForm">SignUp</a></li>
-                                            <!-- 로그인-->
-                                            <li class="nav-item"><a class="nav-link" href="#">SignIn</a></li>
+                                            <li class="nav-item">
+                                            
+                                            	<%if(session.getAttribute("member")==null){ //세션에 담겨진 데이터가 없다면%>
+                                            		<a class="nav-link" href="/shop/member/loginForm">SignIn</a>
+                                            	<%}else{ %>
+                                            		<a class="nav-link" href="/shop/member/logout">SignOut</a>
+                                            	<%} %>
+                                            </li>
                                         </ul>
                                     </div>
                                 </nav>
