@@ -42,8 +42,8 @@
                     <nav class="header__menu">
                         <ul>
                         	<li></li>
-                            <li class="active"><a href="./index.html">Home</a></li>
-                            <li><a href="/shop/product/list?topcategory_id=1">옷</a>
+                            <li class="active"><a href="/">Home</a></li>
+                            <li><a href="/shop/product/listAll?topcategory_id=1">옷</a>
                                 <ul class="dropdown">
                                     <li><a href="/shop/product/list?subcategory_id=1">패딩</a></li>
                                     <li><a href="/shop/product/list?subcategory_id=2">나시</a></li>
@@ -51,7 +51,7 @@
                                     <li><a href="/shop/product/list?subcategory_id=4">원피스</a></li>
                                 </ul>
                             </li>
-                            <li><a href="/shop/product/list?topcategory_id=2">사료</a>
+                            <li><a href="/shop/product/listAll?topcategory_id=2">사료</a>
                                 <ul class="dropdown">
                                     <li><a href="/shop/product/list?subcategory_id=5">연어</a></li>
                                     <li><a href="/shop/product/list?subcategory_id=6">소고기</a></li>
@@ -59,7 +59,7 @@
                                     <li><a href="/shop/product/list?subcategory_id=8">닭고기</a></li>
                                 </ul>
                             </li>
-                            <li><a href="/shop/product/list?topcategory_id=3">간식</a>
+                            <li><a href="/shop/product/listAll?topcategory_id=3">간식</a>
                                 <ul class="dropdown">
                                     <li><a href="/shop/product/list?subcategory_id=9">츄잉껌</a></li>
                                     <li><a href="/shop/product/list?subcategory_id=10">츄르</a></li>
@@ -67,7 +67,7 @@
                                     <li><a href="/shop/product/list?subcategory_id=12">육포말이</a></li>
                                 </ul>
                             </li>
-                            <li><a href="/shop/product/list?topcategory_id=4">악세서리</a>
+                            <li><a href="/shop/product/listAll?topcategory_id=4">악세서리</a>
                                 <ul class="dropdown">
                                     <li><a href="/shop/product/list?subcategory_id=13">모자</a></li>
                                     <li><a href="/shop/product/list?subcategory_id=14">목걸이</a></li>
@@ -76,7 +76,7 @@
                                 </ul>
                             </li>
                             <li><a href="/">Shop</a></li>
-                            <li><a href="#">Pages</a>
+                            <li><a href="/">Pages</a>
                                 <ul class="dropdown">
                                     <li><a href="./product-details.html">Product Details</a></li>
                                     <li><a href="./shop-cart.html">Shop Cart</a></li>
@@ -92,8 +92,8 @@
                 <div class="col-lg-3">
                     <div class="header__right">
                         <div class="header__right__auth">
-                            <a href="/shop/member/">Login</a>
-                            <a href="/shop/memeber/signin">Register</a>
+                            <a href="/shop/member/loginForm">Login</a>
+                            <a href="/shop/member/registForm">Register</a>
                         </div>
                         <ul class="header__right__widget">
                             <li><span class="icon_search search-switch"></span></li>

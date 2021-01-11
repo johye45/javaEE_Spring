@@ -1,9 +1,10 @@
-<%@page import="com.koreait.petshop2.model.common.Formatter"%>
+<%@page import="com.koreait.petshop2.model.domain.SubCategory"%>
 <%@page import="com.koreait.petshop2.model.domain.Product"%>
 <%@page import="java.util.List"%>
 <%@ page contentType="text/html;charset=UTF-8"%>
 <%
-	List<Product> productList  = (List)request.getAttribute("productList");
+	//상위에 소속된 모든 하위카테고리 가져오기
+	List<SubCategory> subList  = (List)request.getAttribute("subList");
 %>
 <!DOCTYPE html>
 <html>
@@ -25,41 +26,35 @@
 	<section class="shop spad">
 		<div class="container">
 			<div class="row">
-			
 
 				<div class="col-lg-9 col-md-9">
 					<div class="row">
-					<%for(int i = 0; i<productList.size();i++){ %>
-					<%Product product = productList.get(i) ;%>
+					<%for(int i = 0; i<subList.size();i++){ %>
 						<div class="col-lg-4 col-md-6">
 							<div class="product__item">
 								<div class="product__item__pic set-bg"
-									data-setbg="/resources/data/basic/<%=product.getProduct_id()%>.<%=product.getFilename()%>">
+									data-setbg="/resources/img/shop/shop-1.jpg">
 									<ul class="product__hover">
-										<li><a href="/resources/data/basic/<%=product.getProduct_id()%>.<%=product.getFilename()%>"	class="image-popup">
-										<span class="arrow_expand">
-										</span>
-										</a>
-										</li>
-										<li><a href="/shop/cart/cart_list"><span class="icon_bag_alt"></span></a></li>
-										<li><a href="/shop/product/detail?product_id=<%=product.getProduct_id()%>"><span class="icon_bag_alt"></span></a></li>
+										<li><a href="/resources/img/shop/shop-1.jpg"
+											class="image-popup"><span class="arrow_expand"></span></a></li>
+										<li><a href="#"><span class="icon_bag_alt"></span></a></li>
 									</ul>
 								</div>
 								<div class="product__item__text">
 									<h6>
-										<a href="#"><%=product.getProduct_name() %></a>
+										<a href="#">Furry hooded parka</a>
 									</h6>
 									<div class="rating">
 										<i class="fa fa-star"></i> <i class="fa fa-star"></i> <i
 											class="fa fa-star"></i> <i class="fa fa-star"></i> <i
 											class="fa fa-star"></i>
 									</div>
-									<div class="product__price"><%=Formatter.getCurrency(product.getPrice()) %></div>
+									<div class="product__price">$ 59.0</div>
 								</div>
 							</div>
 						</div>
-					<%} %>
 					</div>
+					<%} %>
 				</div>
 			</div>
 
