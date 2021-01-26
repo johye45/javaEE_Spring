@@ -1,0 +1,17 @@
+package com.koreait.restproject.rest.controller.member;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+
+import lombok.extern.slf4j.Slf4j;
+
+@Controller
+@Slf4j
+public class MemberController {
+	
+	@GetMapping("/member")
+	public String getList() {
+		log.debug(getList());
+		return null;
+	}
+}

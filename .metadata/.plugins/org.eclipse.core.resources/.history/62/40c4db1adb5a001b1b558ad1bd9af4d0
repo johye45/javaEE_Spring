@@ -1,0 +1,22 @@
+package com.koreait.restproject.model.domain;
+
+import lombok.Data;
+
+@Data
+public class Member {
+	
+	/*
+	 * MariaDB [android]> create table member( 
+	 * -> member_id int primary key auto_increment 
+	 * -> ,m_id varchar(20) 
+	 * -> ,m_pass varchar(20) -
+	 * > ,m_name varchar(20)
+	 *  -> )default character set utf8;
+	 */
+	
+	private int member_id;
+	private String m_id;
+	private String m_pass;
+	private String m_name;
+
+}

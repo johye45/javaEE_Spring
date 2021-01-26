@@ -1,0 +1,7 @@
+package com.koreait.test.model.repository;
+
+import com.koreait.test.model.domain.Hardware;
+
+public interface HardwareDAO {
+	public Hardware selectAll();
+}

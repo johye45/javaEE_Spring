@@ -1,0 +1,9 @@
+package com.koreait.restproject.client.aop;
+
+import org.springframework.web.bind.annotation.ControllerAdvice;
+
+//일반 요청에 대한 글로벌 예외처리
+@ControllerAdvice//컨트롤러에 예외가 나타나면 이 클래스가 동작함
+public class GlobalExceptionHandler {
+
+}

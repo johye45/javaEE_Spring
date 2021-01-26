@@ -1,0 +1,23 @@
+package test;
+
+import java.net.HttpURLConnection;
+import java.net.URL;
+
+/*
+ * 자바 스탠다드 에서는 Socket(Stateful:연결 지속됨)통신 뿐만 아니라,
+ *  웹서버와의 HTTP(stateless:연결이 끊어짐)통신도 지원한다
+ * */
+public class HttpTest {
+	URL url;
+	HttpURLConnection con;//Http통신 객체
+	
+	public HttpTest() {
+		url = new URL("http://localhost:8888/rest/member");//요청 주소를 명시
+		
+	}
+	
+	public static void main(String[] args) {
+		new HttpTest();
+	}
+
+}

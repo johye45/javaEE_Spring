@@ -1,0 +1,47 @@
+package com.koreait.restproject.model.board.repository;
+
+import java.util.List;
+
+import org.mybatis.spring.SqlSessionTemplate;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
+import com.koreait.restproject.model.domain.Board;
+
+@Repository
+public class MybatisBoardDAO implements BoardDAO{
+	
+	@Autowired
+	private SqlSessionTemplate sqlSessionTemplate;
+
+	@Override
+	public List selectAll() {
+		
+		return sqlSessionTemplate.selectList("Board.selectAll");
+	}
+
+	@Override
+	public Board select(int board_id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void insert(Board board) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void update(Board board) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void delete(int board_id) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

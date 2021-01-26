@@ -1,0 +1,5 @@
+package com.koreait.restproject.rest.controller.board;
+
+public class BoardController {
+
+}

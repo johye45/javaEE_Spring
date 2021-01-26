@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<script>
+
+$(function(){
+	$($("button[type='button']")[]).click(function(){
+		del();
+	});
+	
+});
+function del(){
+	if(confirm("삭제 하시겠어요?")){
+		$("reviewForm").attr({
+			action:"/shop/cs/del",
+			method:"get"
+		});		
+		$("reviewForm").submit();		
+	}
+}
+
+</script>
+<form>
+	<button>수정</button>
+	<button onClick="del">삭제</button>
+</form>
+
+
+
+
+</body>
+</html>

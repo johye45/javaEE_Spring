@@ -4,6 +4,9 @@ import java.util.List;
 
 import com.koreait.fashionshop.model.domain.Cart;
 import com.koreait.fashionshop.model.domain.Member;
+import com.koreait.fashionshop.model.domain.OrderDetail;
+import com.koreait.fashionshop.model.domain.OrderSummary;
+import com.koreait.fashionshop.model.domain.Receiver;
 
 
 public interface PaymentService {
@@ -18,4 +21,9 @@ public interface PaymentService {
 
 	
 	//결제 업무 수행
+	public List selectPaymethodList();
+	
+	//주문등록
+	public void registOrder(OrderSummary orderSummary, Receiver receiver);//트랜잭션 처리가 요구되는 메서드
+	
 }

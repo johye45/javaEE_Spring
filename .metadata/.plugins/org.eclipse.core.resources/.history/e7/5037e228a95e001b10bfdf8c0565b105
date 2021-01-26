@@ -1,0 +1,5 @@
+package com.koreait.restproject.model.board.repository;
+
+public class MybatisBoardDAO {
+
+}

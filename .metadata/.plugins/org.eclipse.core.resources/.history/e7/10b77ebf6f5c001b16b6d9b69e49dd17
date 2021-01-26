@@ -1,0 +1,22 @@
+package com.koreait.restproject.rest.aop;
+
+import org.springframework.web.bind.annotation.ControllerAdvice;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+
+import com.koreait.restproject.exception.MemberListException;
+
+import lombok.extern.slf4j.Slf4j;
+
+//Rest요청을 처리하는 컨트롤러에서 발생하는 모든 예외는 여기서 잡아낸다
+@ControllerAdvice
+@Slf4j
+public class GlobalExceptionHandler {
+
+	//회원 목록을 가져올때 발생하는 예외 처리
+	@ExceptionHandler(MemberListException.class)
+	public String handle(MemberListException e) {		
+		log.debug("Rest요청 시 발생하는 예외 처리");
+		return null;
+	}
+	
+}

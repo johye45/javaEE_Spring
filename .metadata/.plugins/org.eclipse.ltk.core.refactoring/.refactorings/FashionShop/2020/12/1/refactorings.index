@@ -1,0 +1,34 @@
+1609308787501	Move 5 resources to 'views'
+1609308828394	Rename resource 'index.html'
+1609308833562	Rename resource 'cart.html'
+1609308840470	Rename resource 'checkout.html'
+1609308847681	Rename resource 'product-details.html'
+1609308854286	Rename resource 'shop.html'
+1609309834071	Delete element
+1609309842916	Move 2 resources to 'shop'
+1609309845904	Move 3 resources to 'shop'
+1609309867569	Delete element
+1609309872911	Move 'index.jsp' to 'views'
+1609310508828	Copy folder
+1609310517764	Copy folder
+1609310522694	Copy folder
+1609310553989	Move 'main.jsp' to 'product'
+1609310559623	Rename resource 'main.jsp'
+1609310565659	Move 'list.jsp' to 'admin'
+1609310575509	Rename resource 'list.jsp'
+1609310579100	Move 'main.jsp' to 'product'
+1609310581740	Move 'main.jsp' to 'admin'
+1609310584173	Copy file
+1609310587170	Rename resource 'main.jsp'
+1609310602548	Delete element
+1609312273900	Rename resource 'list.jsp'
+1609317734091	Copy compilation unit
+1609317847969	Delete element
+1609317870171	Move compilation units
+1609377028996	Delete element
+1609377047947	Delete element
+1609377051932	Move compilation unit
+1609377055149	Move compilation unit
+1609377075207	Rename package 'com.koreait.fashionshop.model.product'
+1609382017788	Copy file
+1609401830449	Rename type 'ProductServiceImpl'

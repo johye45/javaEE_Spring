@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<script>
+
+$(function(){
+	$($("button")[1]).click(function(){
+		del();
+	});
+	
+});
+function del(){
+		
+		form.submit();		
+	
+}
+
+</script>
+<form>
+	<button>수정</button>
+	<input type="button"  value="delete">
+	<button onClick="del">삭제</button>
+</form>
+
+
+
+
+</body>
+</html>

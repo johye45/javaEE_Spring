@@ -1,0 +1,23 @@
+1610340938621	Rename package 'com.koreait.petshop.controller.admin'
+1610340945758	Rename package 'com.koreait.petshop.controller.main'
+1610340951641	Rename package 'com.koreait.petshop.controller.member'
+1610340956796	Rename package 'com.koreait.petshop.controller.product'
+1610340961893	Rename package 'com.koreait.petshop.exception'
+1610340967108	Rename package 'com.koreait.petshop.model.common'
+1610340973585	Rename package 'com.koreait.petshop.model.domain'
+1610340979715	Rename package 'com.koreait.petshop.model.member.repository'
+1610340983851	Rename package 'com.koreait.petshop.model.member.service'
+1610341059258	Rename package 'com.koreait.petshop.mybatis.mapper'
+1610341064063	Rename package 'com.koreait.petshop.model.product.repository'
+1610341068337	Rename package 'com.koreait.petshop.model.product.service'
+1610341074215	Rename package 'com.koreait.petshop.mybatis.config'
+1610343587073	Copy file
+1610343603693	Rename resource 'shop.jsp'
+1610343903533	Delete element
+1610344126631	Delete element
+1610344145250	Copy file
+1610344154822	Rename resource 'signin.jsp'
+1610347923675	Copy file
+1610350415963	Delete element
+1610350421621	Copy file
+1610356780853	Copy folder

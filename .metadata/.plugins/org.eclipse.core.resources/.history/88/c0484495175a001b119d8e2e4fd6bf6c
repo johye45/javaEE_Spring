@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<script>
+
+$(".checkbox").on("click", "#check_all", function () {
+	  var checked = $(this).is(":checked");
+
+	  if(checked){
+	  	$(this).parents(".checkbox_group").find('input').prop("checked", true);
+	  } else {
+	  	$(this).parents(".checkbox_group").find('input').prop("checked", false);
+	  }
+	});
+
+</script>
+<body>
+<div class="checkbox">
+
+  <input type="checkbox" id="check_all" >
+ 
+  
+  <input type="checkbox" id="check_1" class="normal" > 
+  <input type="checkbox" id="check_2" class="normal" >
+  <input type="checkbox" id="check_3" class="normal" >
+  <input type="checkbox" id="check_4" class="normal" >
+  <input type="checkbox" id="check_5" class="normal" >
+
+  
+</div>
+
+
+
+
+</body>
+</html>

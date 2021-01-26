@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<script>
+
+function king(selectAll)  {
+	  const checkboxes  = document.querySelectorAll('input[type="checkbox"]');
+	  checkboxes.forEach((checkbox) => {
+	    checkbox.checked = selectAll.checked
+	  })
+	}
+
+</script>
+<body>
+	<input type='checkbox' onclick='king(this)'/> 
+<br />
+<input type='checkbox'  /> 
+<br />
+<input type='checkbox'  /> 
+<br />
+<input type='checkbox'  /> 
+<br />
+<input type='checkbox'  /> 
+<br />
+<input type='checkbox'  /> 
+<br />
+
+
+</body>
+</html>

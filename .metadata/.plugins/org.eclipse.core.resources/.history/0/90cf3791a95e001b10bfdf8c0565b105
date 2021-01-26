@@ -1,0 +1,5 @@
+package com.koreait.restproject.exception;
+
+public class BoardUpdateException {
+
+}

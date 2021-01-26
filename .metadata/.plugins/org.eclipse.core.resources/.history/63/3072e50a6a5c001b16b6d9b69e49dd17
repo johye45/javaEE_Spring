@@ -1,0 +1,9 @@
+package com.koreait.restproject.rest.aop;
+
+import org.springframework.web.bind.annotation.ControllerAdvice;
+
+//Rest요청을 처리하는 컨트롤러에서 발생하는 모든 예외는 여기서 잡아낸다
+@ControllerAdvice
+public class GlobalExceptionHandler {
+
+}

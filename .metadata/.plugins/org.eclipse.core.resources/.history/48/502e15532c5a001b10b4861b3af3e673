@@ -1,0 +1,5 @@
+package com.koreait.test.model.repository;
+
+public interface HardwareDAO {
+
+}

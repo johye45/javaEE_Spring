@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<script>
+
+
+var check = false;
+function selectAll(){
+	var chk = document.getElementsByName("[]");
+	if(check == false){
+		check = true; 
+		for(var i=0; i<chk.length;i++){ 
+			chk[i].checked = true;
+			}
+		}else{
+			check = false;
+			for(var i=0; i<chk.length;i++){
+				chk[i].checked = false; 
+				}
+			}
+	}
+
+
+</script>
+<body>
+	<input type="checkbox" name="king" onclick="selectAll"/> 
+<br />
+<input type="checkbox"  /> 
+<br />
+<input type="checkbox"  /> 
+<br />
+<input type="checkbox"  /> 
+<br />
+<input type="checkbox"  /> 
+<br />
+<input type="checkbox"  /> 
+<br />
+<input type="checkbox"  /> 
+
+
+
+</body>
+</html>

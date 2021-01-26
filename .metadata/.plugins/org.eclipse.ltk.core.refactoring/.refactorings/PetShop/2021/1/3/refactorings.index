@@ -1,0 +1,59 @@
+1610252063643	Rename type 'mybatisSubCategoryDAO'
+1610252069333	Rename type 'mybatisProductDAO'
+1610256019759	Delete element
+1610256080318	Rename type 'Critera'
+1610256797444	Delete element
+1610256801371	Delete element
+1610263145357	Delete elements
+1610263165572	Delete elements
+1610264971546	Delete element
+1610290994726	Copy package
+1610291002639	Delete elements
+1610356660640	Delete elements
+1610356670956	Delete elements
+1610356681369	Rename package 'java.com.koreait.petshop2.controller.admin'
+1610356689441	Rename package 'java.com.koreait.petshop2.controller.main'
+1610356694583	Rename package 'java.com.koreait.petshop2.controller.member'
+1610356700799	Rename package 'java.com.koreait.petshop2.controller.product'
+1610356716915	Rename package 'java.com.koreait.petshop2.exception'
+1610356721462	Rename package 'java.com.koreait.petshop2.model.common'
+1610356727285	Rename package 'java.com.koreait.petshop2.model.domain'
+1610356730528	Rename package 'java.com.koreait.petshop2.model.member.repository'
+1610356734797	Rename package 'java.com.koreait.petshop2.model.member.service'
+1610356741988	Rename package 'java.com.koreait.petshop2.model.product.repository'
+1610356746092	Rename package 'java.com.koreait.petshop2.model.product.service'
+1610356750559	Rename package 'java.com.koreait.petshop2.mybatis.config'
+1610356753972	Rename package 'java.com.koreait.petshop2.mybatis.mapper'
+1610356789782	Delete element
+1610357847034	Delete element
+1610357942956	Rename package 'controller.admin'
+1610357949144	Rename package 'controller.main'
+1610357954980	Rename package 'controller.product'
+1610357959655	Rename package 'controller.member'
+1610357974387	Rename package 'exception'
+1610357980290	Rename package 'model.common'
+1610357990404	Rename package 'model.domain'
+1610357993183	Rename package 'model.member.repository'
+1610357999084	Rename package 'model.member.service'
+1610358003744	Rename package 'model.product.repository'
+1610358007545	Rename package 'model.product.service'
+1610358011981	Rename package 'mybatis.config'
+1610358016910	Rename package 'mybatis.mapper'
+1610359612871	Delete elements
+1610364656410	Delete element
+1610364760182	Rename package 'com.koreait.petshop.model.member.payment.repository'
+1610364787308	Rename type 'MybatisCartDOA'
+1610429288419	Copy file
+1610445781266	Copy compilation unit
+1610514521188	Delete element
+1610524531011	Copy file
+1610524570615	Rename resource 'delete_form.jsp'
+1610603466537	Rename resource 'NewFile.jsp'
+1610603482870	Rename resource 'delete.jsp'
+1610603491721	Rename resource 'mypagedelete.jsp'
+1610604355244	Rename package 'com.koreait.petshop.controller.orderlist'
+1610604458186	Copy file
+1610604491013	Copy file
+1610612977691	Copy file
+1610613069838	Delete element
+1610683527282	Copy file

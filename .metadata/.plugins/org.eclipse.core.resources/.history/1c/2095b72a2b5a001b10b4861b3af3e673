@@ -1,0 +1,12 @@
+package com.koreait.test.controller;
+
+import javax.servlet.http.HttpServletRequest;
+
+import org.springframework.web.bind.annotation.RequestMapping;
+
+public class HardwareController {
+	@RequestMapping("/")
+	public String hardwareList(HttpServletRequest request) {
+		return "/";
+	}
+}

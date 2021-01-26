@@ -1,0 +1,5 @@
+spackage com.koreait.test.repository;
+
+public class MybatisHardwareDAO {
+
+}

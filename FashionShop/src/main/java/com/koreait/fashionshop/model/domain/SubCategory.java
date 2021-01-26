@@ -4,6 +4,7 @@ public class SubCategory {
 	private int subcategory_id;
 	private int topcategory_id;
 	private String name;
+	
 	public int getSubcategory_id() {
 		return subcategory_id;
 	}

@@ -1,5 +1,4 @@
-<%@page import="com.koreait.fashionshop.common.Formatter"%>
-<%@page import="com.fasterxml.jackson.core.format.DataFormatMatcher"%>
+<%@page import="com.koreait.fashionshop.model.common.Formatter"%>
 <%@page import="com.koreait.fashionshop.model.domain.Cart"%>
 <%@ page contentType="text/html;charset=utf-8"%>
 <%
@@ -17,23 +16,27 @@
     <!-- Title  -->
     <title>Karl - Fashion Ecommerce Template | Home</title>
 	<%@ include file="../inc/header.jsp" %>
-	
 	<script>
-		function delCart(){
-			if(confirm("장바구니에 담겨진 상품 모두 비우시겠습까?")){
-				location.href = "/shop/cart/del";//이미 session에 member_id가 담겨져 있기 때문에 
-			}
-		}
+	function delCart(){
+		if(confirm("장바구니를 모두 비우시겠습니까?")){
+			location.href="/shop/cart/del";
+		}	
+	}
+	
+	function editCart(){
+		if(confirm("주문 수량을 변경하시겠어요?")){
+			$("#cart-form").attr({
+				action:"/shop/cart/edit",
+				method:"post"
+			});
+			$("#cart-form").submit();
+		}	
 		
-		function editCart(){
-			if(confirm("수량을 변경하시겠습까?")){
-				$("#cart-form").attr({
-					action:"/shop/cart/edit",
-					method:"post"
-				});
-				$("#cart-form").submit();
-			}
-		}
+	}
+	
+	function checkoutForm(){
+		location.href="/shop/payment/form";	
+	}
 	</script>
 </head>
 
@@ -44,7 +47,7 @@
         <!-- ****** Cart Area Start ****** -->
         <div class="cart_area section_padding_100 clearfix">
             <div class="container">
-                <form id="cart-form">
+            	<form id="cart-form">
                 <div class="row">
                     <div class="col-12">
                         <div class="cart-table clearfix">
@@ -58,24 +61,24 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                <%int sum = 0;//합계 %>
+                                	<%int sum=0; //합계 %>
                                     <%for(Cart cart : cartList){ %>
                                     <tr>
                                         <td class="cart_product_img d-flex align-items-center">
-                                            <a href="#"><img src="/resources/data/basic/<%=cart.getProduct_id() %>.<%=cart.getFilename() %>" alt="Product"></a>
-                                            <h6><%=cart.getSubCategory().getName() %>><%=cart.getProduct_name() %></h6>
+                                            <a href="#"><img src="/resources/data/basic/<%=cart.getProduct_id() %>.<%=cart.getFilename()%>" alt="Product"></a>
+                                            <h6><%=cart.getSubCategory().getName() %> > <%=cart.getProduct_name() %> </h6>
                                         </td>
                                         <td class="price"><span><%=Formatter.getCurrency(cart.getPrice()) %></span></td>
                                         <td class="qty">
                                             <div class="quantity">
                                                 <span class="qty-minus" onclick="var effect = document.getElementById('qty'); var qty = effect.value; if( !isNaN( qty ) &amp;&amp; qty &gt; 1 ) effect.value--;return false;"><i class="fa fa-minus" aria-hidden="true"></i></span>
                                                 <input type="hidden" name="cart_id" value="<%=cart.getCart_id()%>">
-                                                <input type="number" class="qty-text" id="qty" step="1" min="1" max="99" name="quantity" value="<%=cart.getQuantity()%>">
+                                                <input type="number" name="quantity" class="qty-text" id="qty" step="1" min="1" max="99"  value="<%=cart.getQuantity()%>">
                                                 <span class="qty-plus" onclick="var effect = document.getElementById('qty'); var qty = effect.value; if( !isNaN( qty )) effect.value++;return false;"><i class="fa fa-plus" aria-hidden="true"></i></span>
                                             </div>
                                         </td>
                                         <%
-                                        	sum = sum+(cart.getPrice()*cart.getQuantity());
+                                        	sum = sum + (cart.getPrice()*cart.getQuantity());
                                         %>
                                         <td class="total_price"><span><%=Formatter.getCurrency(cart.getPrice()*cart.getQuantity()) %></span></td>
                                     </tr>
@@ -93,11 +96,11 @@
                                 <a href="javascript:editCart()">Update cart</a>
                             </div>
                         </div>
-				</form>
-						
+
                     </div>
                 </div>
-
+				</form>
+				
                 <div class="row">
                     <div class="col-12 col-md-6 col-lg-4">
                         <div class="coupon-code-area mt-70">
@@ -146,7 +149,7 @@
                                 <li><span>Shipping</span> <span>Free</span></li>
                                 <li><span><strong>Total</strong></span> <span><strong><%=Formatter.getCurrency(sum) %></strong></span></li>
                             </ul>
-                            <a href="checkout.html" class="btn karl-checkout-btn">Proceed to checkout</a>
+                            <a href="javascript:checkoutForm()" class="btn karl-checkout-btn">Proceed to checkout</a>
                         </div>
                     </div>
                 </div>

@@ -11,8 +11,12 @@
 <%@include file="../inc/header.jsp" %>
 <script>
 	$(function(){
-		$("button").click(function(){
-			location.href="/admin/product/registform";//글쓰기 폼 요청
+		$(("#bt_regist")).click(function(){
+			location.href="/admin/product/registform";//상품 등록 폼 요청
+			
+		});
+		$(("#bt_excel")).click(function(){
+			location.href="/admin/product/excel/registform";//대량 등록 폼 요청
 			
 		});
 		
@@ -52,7 +56,8 @@
 	</table>
 	<tr>
 		<td colspan="6">
-			<button type="button">상품등록</button>
+			<button id="bt_regist">상품등록</button>
+			<button id="bt_excel">엑셀 등록</button>(대량의 상품을 등록하기)
 		</td>
 	</tr>
 </p>

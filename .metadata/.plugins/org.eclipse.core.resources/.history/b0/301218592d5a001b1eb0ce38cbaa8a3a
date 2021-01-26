@@ -1,0 +1,16 @@
+package com.koreait.test.model.service;
+
+import java.util.List;
+
+import org.springframework.stereotype.Service;
+
+@Service
+public class HardwareServiceImpl implements HardwareService{
+
+	@Override
+	public List selectAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

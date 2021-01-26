@@ -1,0 +1,5 @@
+package com.koreait.restproject.model.member.service;
+
+public interface MemberService {
+
+}

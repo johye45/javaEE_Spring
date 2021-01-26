@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<style>
+	#box{
+		width:500px;
+		height:600px;
+		overflow: hidden;
+	}
+	#box1{
+		width: 250px;
+		height: 400px;
+		background: red;
+		float: left;
+	}
+	#box2{
+		width: 250px;
+		height: 400px;
+		background: green;
+		float: left;
+	}
+	#box3{
+		width: 250px;
+		height: 100%;
+		background: red;
+		background: yellow;
+		float: left;
+	}
+</style>
+<body>
+	<div id="box">
+		<div id="box1"></div>
+		<div id="box2"></div>
+		<div id="box3"></div>
+	</div>
+</body>
+</html>

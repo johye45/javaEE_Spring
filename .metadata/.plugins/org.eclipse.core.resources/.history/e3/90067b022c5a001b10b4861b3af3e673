@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+	<typeAliases>
+		<typeAlias type="com.koreait.test.model.domain.Hardware" 		alias="TopCategory"/>		
+		
+	</typeAliases>
+	
+	<mappers>
+		<mapper resource="com/korait/test/mybatis/mapper/HardwareMapper.xml"/>
+		
+	</mappers>
+	
+</configuration>

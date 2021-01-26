@@ -1,0 +1,7 @@
+package com.koreait.restproject.client.controller.member;
+
+//일반적인 요청을 처리하는 컨트롤러
+@Controller
+public class MemberController {
+
+}

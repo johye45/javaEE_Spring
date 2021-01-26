@@ -315,7 +315,7 @@ function regist(){
     
     <textarea id="detail" name="detail" placeholder="상세정보.." style="height:200px"></textarea>
     <input type="button" value="상품등록" onClick="regist()">
-    <input type="button" value="상품목록보기" onClick="location.href='/client/notice/list'">
+    <input type="button" value="상품목록보기" onClick="location.href='/admin/product/list'">
   </form>
 </div>
 

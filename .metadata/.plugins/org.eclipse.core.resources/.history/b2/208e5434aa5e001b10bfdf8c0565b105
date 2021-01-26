@@ -1,0 +1,5 @@
+package com.koreait.restproject.model.board.service;
+
+public class BoardServiceImpl {
+
+}
